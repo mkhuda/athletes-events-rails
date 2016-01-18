@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PB ISSI</title>
+  <title><%= yield(:title) %> | PB ISSI Athletes Dashboard</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,12 +10,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<div class="container">
-
+<% if logged_in? %>
+	<div class="container">
+	<%= render 'layouts/top' %>
+	<div class="row">
+		<div class="col-md-2">
+			<%= render 'layouts/left' %>
+		</div>
+		<div class="col-md-10">
+			<%= yield %>
+		</div>
+	</div>
+	
+	</div>
+	
+<% else %>
 	<%= yield %>
+<% end %>	
 
-</div>
-
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted text-center">PB ISSI | ICF - 2016</p>
+  </div>
+</footer>
 </body>
 </html>

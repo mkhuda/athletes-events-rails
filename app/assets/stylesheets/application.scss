@@ -11,23 +11,27 @@
  * file per style scope.
  *
  */
+@import "bootstrap-sprockets";
 @import "bootstrap";
+@import "nprogress";
+@import "nprogress-bootstrap";
 
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #373a3c;
-	padding-top: 40px;
-	padding-bottom: 40px;
-	background-color: #eee;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  // font-size: 1rem;
+  // line-height: 1.5;
+  color: #373a3c;
+  // padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
 }
 
 .form-signin {
   max-width: 330px;
-  padding: 15px;
+  padding: 50px 15px 15px 15px;
   margin: 0 auto;
 }
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
@@ -47,6 +51,14 @@ body {
 .form-signin .form-control:focus {
   z-index: 2;
 }
+
+.form-signin span.ember {
+  margin-left: 2rem;
+}
+
+.form-signin .checkbox input[type="checkbox"] {
+  margin-left: 0rem !important;
+}
 .form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
@@ -56,4 +68,11 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
 }

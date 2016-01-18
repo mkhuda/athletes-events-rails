@@ -44,9 +44,9 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap (4.0.0.alpha3)
-      autoprefixer-rails (>= 6.0.3)
-      sass (>= 3.4.19)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.1)
     coffee-rails (4.1.1)
@@ -75,6 +75,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    materialize-sass (0.97.5)
+      sass (~> 3.3)
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
@@ -154,11 +156,12 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
-  bootstrap
+  bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  materialize-sass
   mysql2 (~> 0.3.18)
   nprogress-rails
   rails (= 4.2.4)
