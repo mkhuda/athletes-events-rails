@@ -1,5 +1,6 @@
 <% provide(:title, "Atlit") %>
-<h2>Daftar Atlit</h2>
+<div class="pull-left"><h2>Daftar Atlit</h2></div>
+<div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add New"), new_athlete_path, class: "btn btn-sm btn-default" %></div>
 <table class="table table-hover">
   <thead>
   <tr class="active">
@@ -7,13 +8,13 @@
   		No
   	</th>
   	<th>
-  		Nama
+  		Name
   	</th>
   	<th>
-  		Kota
+  		City
   	</th>
   	<th>
-  		Edit
+  		Actions
   	</th>
   </tr>
   	
@@ -24,10 +25,14 @@
 
 	<% @athletes.each_with_index do |a, index| %>
 	<tr>
-	<td class="athletes no-<%= a.id %>"><%= @athletes.offset + index + 1 %></td>
-	<td class="name"><%= a.name %></td>
-	<td class="city"></td>
-	<td class="edit"></td>
+	<td class="athletes no-<%= a.id %> col-md-1"><%= @athletes.offset + index + 1 %></td>
+	<td class="name col-md-4"><%= a.name %></td>
+	<td class="city col-md-3"><%= a.city %></td>
+	<td class="edit col-md-2">
+  <%= link_to (fa_icon "pencil"), edit_athlete_path(a.id), class: "btn btn-sm btn-warning" %>
+  <%= link_to (fa_icon "eye"), athlete_path(a.id), class: "btn btn-sm btn-default" %>
+  <%= link_to (fa_icon "trash"), athlete_path(a), method: :delete, data: { confirm: "Apakah anda ingin menghapus ?" }, class: "btn btn-sm btn-danger"  %>
+  </td>
 	</tr>
 	<% end %>
 	
