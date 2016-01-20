@@ -3,8 +3,8 @@
 	<ul class="nav nav-pills nav-stacked">
 	<li role="presentation"><%= link_to "Home", root_path, class: active_class(root_path) %></li>
 	<li role="presentation"><%= link_to "Athletes", athletes_path, class: active_class(athletes_path) %></li>
-	<li role="presentation"><a href="#">Teams</a></li>
-	<li role="presentation"><a href="#">Events</a></li>
+	<li role="presentation"><%= link_to "Teams", teams_path, class: active_class(teams_path) %></li>
+	<li role="presentation"><%= link_to "Events", events_path, class: active_class(events_path) %></li>
 	</ul>
 </div>
 </div>

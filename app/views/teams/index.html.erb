@@ -1,0 +1,50 @@
+<% provide(:title, "Teams") %>
+<div class="pull-left"><h2>Daftar Tim</h2></div>
+<div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add New Team"), new_team_path, class: "btn btn-sm btn-default" %></div>
+<table class="table table-hover">
+  <thead>
+  <tr class="active">
+  <th>
+  		No
+  	</th>
+  	<th>
+  		Name
+  	</th>
+  	<th>
+  		Ketua
+  	</th>
+    <th>
+      Anggota
+    </th>
+  	<th>
+  		Actions
+  	</th>
+  </tr>
+  	
+  </thead>
+  <tbody>
+  
+  	<% if @teams.present? %>
+
+	<% @teams.each_with_index do |a, index| %>
+	<tr>
+	<td class="athletes no-<%= a.id %> col-md-1"><%= @teams.offset + index + 1 %></td>
+	<td class="name col-md-3"><%= a.name %></td>
+	<td class="city col-md-3"><%= a.leader %></td>
+  <td class="anggota col-md-2"><%= a.athletes.size %> Atlit</td>
+	<td class="edit col-md-2">
+  <%= link_to (fa_icon "pencil"), edit_team_path(a.id), class: "btn btn-sm btn-warning" %>
+  <%= link_to (fa_icon "eye"), team_path(a.id), class: "btn btn-sm btn-default" %>
+  <%= link_to (fa_icon "trash"), team_path(a), method: :delete, data: { confirm: "Apakah anda ingin menghapus ?" }, class: "btn btn-sm btn-danger"  %>
+  </td>
+	</tr>
+	<% end %>
+	
+	
+	
+<% else %>
+	<p> There are no teams data </p>
+<% end %>
+  </tbody>
+</table>
+<%= will_paginate @teams %>

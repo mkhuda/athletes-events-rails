@@ -1,0 +1,62 @@
+<% provide(:title, @team.name) %>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Tim <%= @team.name %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-3 col-lg-3 " align="center"> <%= image_tag(@team.image_url, :class => "img-circle img-responsive") if @team.image? %> </div>
+
+      <div class=" col-md-9 col-lg-9 "> 
+        <table class="table table-user-information">
+          <tbody>
+            <tr>
+              <td>Ketua / Pendiri :</td>
+              <td><%= @team.leader %></td>
+            </tr>
+            <tr>
+              <td>Tanggal Berdiri</td>
+              <td><%= @team.birthday.strftime('%d %B %Y') if @team.birthday? %></td>
+            </tr>
+            
+            <tr>
+              <td>Jumlah Anggota :</td>
+              <td><%= @size %></td>
+            </tr>
+               <tr>
+                   
+              <tr>
+              <td>Address</td>
+              <td><%= @team.address %></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td><%= @team.email %></td>
+            </tr>
+
+            <tr>
+              <td>Website</td>
+              <td><%= @team.website %></td>
+            </tr>
+              <td>Phone Number</td>
+              <td>
+              <%= @team.phone %>
+              </td>
+                 
+            </tr>
+           
+          </tbody>
+        </table>
+        
+        <a href="#" class="btn btn-primary">Embed</a>
+
+      </div>
+    </div>
+  </div>
+       <div class="panel-footer">
+              <span class="pull-right">
+                  <%= link_to (fa_icon "trash"), team_path(@team), method: :delete, data: { confirm: "Apakah anda ingin menghapus ?" }, class: "btn btn-sm btn-danger"  %>
+              </span>
+          </div>
+  
+</div>

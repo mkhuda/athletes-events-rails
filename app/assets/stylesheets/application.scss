@@ -25,7 +25,7 @@ body {
   color: #373a3c;
   // padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+  /*background-color: #eee;*/
 }
 
 .form-signin {
@@ -72,9 +72,8 @@ body {
   border-top-right-radius: 0;
 }
 .footer {
-  position: absolute;
   bottom: 0;
+  margin-top: 50px;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 60px;
 }

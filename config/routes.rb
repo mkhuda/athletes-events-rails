@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'embed/index'
+
   root 'home#index'
 
   get 'login' => 'sessions#new'
@@ -13,13 +15,16 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+  get 'share' => 'embed#index'
+  get 'share/:id/:paramshare' => 'embed#show'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :athletes
-
+    resources :teams
+    resources :events
   # Example resource route with options:
   #   resources :products do
   #     member do

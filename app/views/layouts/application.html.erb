@@ -10,12 +10,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if logged_in? %>
+<% if logged_in? && (check_embed? == false) %>
 	<div class="container">
 	<%= render 'layouts/top' %>
 	<div class="row">
 		<div class="col-md-2">
 			<%= render 'layouts/left' %>
+			<%= check_embed? %>
 		</div>
 		<div class="col-md-10">
 			<%= yield %>

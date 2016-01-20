@@ -38,5 +38,9 @@ module SessionsHelper
 	def logged_in?
 		!current_user.nil?
 	end
+
+	def check_embed?
+		controller.controller_name == 'embed'
+	end
 	
 end
