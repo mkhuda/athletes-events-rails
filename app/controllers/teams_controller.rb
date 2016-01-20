@@ -17,6 +17,23 @@ class TeamsController < ApplicationController
 	  		render 'new'
 	  	end
 	end
+	
+	def edit
+		@team = Team.find(params[:id])
+		@team.birthday? ? (@birthday = DateTime.now.beginning_of_day) : (@birthday = @team.birthday)
+	end
+
+	def update
+	    params[:team][:birthday] = params[:yyyy]+'/'+params[:mm]+'/'+params[:dd]
+		@team = Team.find(params[:id])
+
+		if @team.update(team_params)
+			redirect_to @team
+		else
+			render 'edit'
+		end
+
+	end
 
 	def show
 		@team = Team.find(params[:id])

@@ -21,6 +21,25 @@ class AthletesController < ApplicationController
 	def show
 		@athlete = Athlete.find(params[:id])
 	end
+	
+	def edit
+		@athlete = Athlete.find(params[:id])
+		@gender = @athlete.gender
+		@birthday = @athlete.birthday
+		@themont = @birthday.strftime('%B')
+	end
+
+	def update
+	    params[:athlete][:birthday] = params[:yyyy]+'/'+params[:mm]+'/'+params[:dd]
+		@athlete = Athlete.find(params[:id])
+
+		if @athlete.update(athlete_params)
+			redirect_to @athlete
+		else
+			render 'edit'
+		end
+
+	end
 
 	def destroy
 		@athlete = Athlete.find(params[:id])
