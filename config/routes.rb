@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'teamevents/index'
+
   get 'embed/index'
 
   root 'home#index'
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :athletes
+	
     resources :teams
     resources :events
   # Example resource route with options:
