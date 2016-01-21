@@ -55,6 +55,7 @@
   </div>
        <div class="panel-footer">
               <span class="pull-right">
+				  <%= link_to (fa_icon "pencil"), edit_team_path(@team.id), class: "btn btn-sm btn-warning" %>
                   <%= link_to (fa_icon "trash"), team_path(@team), method: :delete, data: { confirm: "Apakah anda ingin menghapus ?" }, class: "btn btn-sm btn-danger"  %>
               </span>
           </div>
