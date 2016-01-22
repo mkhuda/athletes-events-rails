@@ -14,7 +14,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datepicker";
-@import "trumbowyg";
+@import "trumbowyg/trumbowyg";
 @import "font-awesome";
 @import "nprogress";
 @import "nprogress-bootstrap";
