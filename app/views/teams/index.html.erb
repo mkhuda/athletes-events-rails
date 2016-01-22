@@ -1,4 +1,5 @@
 <% provide(:title, "Teams") %>
+<% if @teams.present? %>
 <div class="pull-left"><h2>Daftar Tim</h2></div>
 <div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add New Team"), new_team_path, class: "btn btn-sm btn-default" %></div>
 <table class="table table-hover">
@@ -20,11 +21,11 @@
   		Actions
   	</th>
   </tr>
-  	
+
   </thead>
   <tbody>
-  
-  	<% if @teams.present? %>
+
+
 
 	<% @teams.each_with_index do |a, index| %>
 	<tr>
@@ -39,12 +40,13 @@
   </td>
 	</tr>
 	<% end %>
-	
-	
-	
-<% else %>
-	<p> There are no teams data </p>
-<% end %>
+
+
+
   </tbody>
 </table>
+
+<% else %>
+<div class="alert alert-warning"> There are no teams. <%= link_to "Create One Now.", new_team_path, class: "btn btn-sm btn-default" %> </div>
+<% end %>
 <%= will_paginate @teams %>
