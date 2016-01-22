@@ -44,6 +44,8 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.5.0)
+      railties (>= 3.0)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -82,11 +84,11 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    materialize-sass (0.97.5)
-      sass (~> 3.3)
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
+    momentjs-rails (2.11.0)
+      railties (>= 3.1)
     multi_json (1.11.2)
     mysql2 (0.3.20)
     nokogiri (1.6.7.1)
@@ -144,6 +146,10 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.2)
+    trumbowyg_rails (1.1.3)
+      rails (>= 3.1)
+      railties (>= 3.1)
+      sass (>= 3.2)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -163,6 +169,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  bootstrap-datepicker-rails (~> 1.5)
   bootstrap-sass (~> 3.3.6)
   byebug
   carrierwave
@@ -170,7 +177,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
-  materialize-sass
+  momentjs-rails (>= 2.9.0)
   mysql2 (~> 0.3.18)
   nprogress-rails
   rails (= 4.2.4)
@@ -178,6 +185,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
+  trumbowyg_rails
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

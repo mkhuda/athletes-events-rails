@@ -11,7 +11,7 @@
 
 <h4 class="list-group-item-heading"><i class="fa fa-bookmark-o"></i> <%= a.name %></h4>
     <p class="list-group-item-text"><%= (a.description).html_safe %></p>
-    <p class="list-group-item-text">at <i class="fa fa-calendar"></i> <strong><%= (a.finish_date).strftime('%m/%d/%Y') %></strong></p>
+    <p class="list-group-item-text">at <i class="fa fa-bookmark-o"></i> <%= (a.finish_date).strftime('%m/%d/%Y') %></p>
 <% end %>
 	<% end %>
 

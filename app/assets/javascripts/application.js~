@@ -25,14 +25,8 @@ var ready;
 ready = function() {
 	$('textarea').trumbowyg({
 		fullscreenable: false,
-		closable: false,
-		btns: ['viewHTML',
-      '|', 'formatting',
-      '|', 'btnGrp-design',
-      '|', 'link',
-      '|', 'btnGrp-justify',
-      '|', 'btnGrp-lists',
-      '|', 'horizontalRule']
+		closable: true,
+		btns: ['bold', 'italic', '|']
 		});
 	console.log("Welcome to PBISSI");
 };
