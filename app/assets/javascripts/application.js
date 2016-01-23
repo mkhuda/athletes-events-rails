@@ -35,9 +35,10 @@ ready = function() {
       '|', 'horizontalRule']
 		});
 	console.log("Welcome to PBISSI");
+	$('input.picker').datepicker({
+		format: "yyyy-mm-dd"
+	});
 };
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
-
-
