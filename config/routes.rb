@@ -18,8 +18,19 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get 'share' => 'embed#index'
-  get 'share/:id/:paramshare' => 'embed#show'
+  get 'eventstanding/:event_id' => 'embed#eventstandings', as: :sharestandings
+  get 'eventresults/:event_id' => 'embed#eventresults', as: :shareresults
 
+  # for events
+  get 'standings/:event_id' => 'events#showstanding', as: :standing
+
+  get 'ae/:event_id' => 'events#showathlete', as: :ae
+  post 'ae/:event_id' => 'events#createathlete'
+  delete 'ae/:event_id' => 'events#destroyathlete'
+  
+  get 'at/:event_id' => 'events#showteam', as: :at
+  post 'at/:event_id' => 'events#createteam'
+  delete 'at/:event_id' => 'events#destroyteam'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

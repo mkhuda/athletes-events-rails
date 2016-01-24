@@ -2,9 +2,29 @@ class EmbedController < ApplicationController
   def index
   end
 
-  def show
+  def eventstandings
+
+  	@event = Event.find(params[:event_id])
+		
+	if @event.category == 'Individual'
+		@fetch = Athleteevent.all.where("event_id = ?", params[:event_id])
+		
+	else
+		@fetch = Teamevent.all.where("event_id = ?", params[:event_id])
+	end
   	
-  	paramshare = params[:paramshare]
+  end
+
+  def eventresults
+
+  	@event = Event.find(params[:event_id])
+		
+	if @event.category == 'Individual'
+		@fetch = Athleteevent.all.where("event_id = ?", params[:event_id])
+		
+	else
+		@fetch = Teamevent.all.where("event_id = ?", params[:event_id])
+	end
 
   end
 

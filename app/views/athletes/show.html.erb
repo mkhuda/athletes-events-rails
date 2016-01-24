@@ -1,4 +1,7 @@
 <% provide(:title, @athlete.name) %>
+<ol class="breadcrumb">
+    <%= render_breadcrumbs :tag => :li, :separator => "" %>
+  </ol>
 <div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title"><%= @athlete.name %> | Athlete Number: <%= @athlete.number %></h3>

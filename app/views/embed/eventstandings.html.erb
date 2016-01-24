@@ -1,20 +1,4 @@
-<% provide(:title, @event.name) %>
-<ol class="breadcrumb">
-	<%= render_breadcrumbs :tag => :li, :separator => "" %>
-</ol>
-
-<div class="page-header">
-	<h1><%= @event.name %></h1>
-	<div class="pull-left"><%= link_to (fa_icon "plus-eye", text: "Show Standings"), standing_path(@event.id), class: "btn btn-sm btn-danger" %></div>
-	<% if @event.category == "Individual" %>
-		<div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add / Edit Participants"), ae_path(@event.id), class: "btn btn-sm btn-default" %></div>
-	<% else %>
-		<div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add / Edit Participants"), at_path(@event.id), class: "btn btn-sm btn-default" %></div>
-	<% end %>
-
-</div>
-<br>
-	<ul class="list-group">
+<ul class="list-group">
 	<li class="list-group-item disabled">
 	<div class="row">
 			<div class="name col-md-12"><p class="text-center"><%= @event.name %> - Results</p></div>
@@ -55,14 +39,3 @@
 	</div>
 	</li>
 	</ul>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".share-modal-lg"><i class="fa fa-share-alt"></i> Embed This Results</button>
-
-<div class="modal fade share-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <input type="text" class="form-control" value="<%= shareresults_url(@event.id) %>">
-      <p class="text-muted text-center">Copy this code into site post</p>
-    </div>
-  </div>
-</div>

@@ -1,0 +1,33 @@
+<% provide(:title, @event.name) %>
+<ol class="breadcrumb">
+	<%= render_breadcrumbs :tag => :li, :separator => "" %>
+</ol>
+<div class="page-header">
+	<h2>Add Teams for <%= @event.name %></h2>
+</div>
+
+<ul class="list-group">
+<% @team.each_with_index do |a, index| %>
+  <li class="list-group-item">
+	<div class="row">
+		<div class="teams no-<%= a.id %> col-md-2"><%= @team.offset + index + 1 %></div>
+		<div class="name col-md-4"><%= a.name %></div>
+		<div class="city col-md-3"><%= a.city %></div>
+		<div class="edit col-md-3">
+
+			<%= button_to at_path(params[:event_id]), :method => :post, params: {:"at[team_id]" => a.id, :"at[event_id]" => params[:event_id]}, class: "btn btn-danger", :disabled => a.teamevents.where(:team_id => a.id, :event_id => params[:event_id]).present?, form_class: "button-thing" do %>
+			<%= ("<i class='fa fa-plus-square-o'></i> Add").html_safe %>
+			<% end %>
+
+			<%= button_to at_path(params[:event_id]), :method => :delete, params: {:"at[team_id]" => a.id, :"at[event_id]" => params[:event_id]}, class: "btn btn-default", :disabled => !a.teamevents.where(:team_id => a.id, :event_id => params[:event_id]).present?, form_class: "button-thing" do %>
+			<%= ("<i class='fa fa-close'></i>").html_safe %>
+			<% end %>
+
+
+		</div>
+	</div>
+</li>
+<% end %>
+</ul>
+	
+<%= will_paginate @team %>

@@ -38,6 +38,9 @@ gem 'nprogress-rails'
 # will paginate
 gem 'will_paginate'
 
+# breadcrumbs
+gem 'breadcrumbs_on_rails'
+
 # carrierwave uploader
 gem 'carrierwave'
 # Use ActiveModel has_secure_password

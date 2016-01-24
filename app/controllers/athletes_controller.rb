@@ -1,5 +1,8 @@
 class AthletesController < ApplicationController
 	before_filter :require_authorization
+
+	add_breadcrumb "Home", :root_path
+	add_breadcrumb "Athletes", :athletes_path
 	def index
 		@athletes = Athlete.paginate(:page => params[:page], :per_page => 20)
 	end
@@ -20,6 +23,7 @@ class AthletesController < ApplicationController
 
 	def show
 		@athlete = Athlete.find(params[:id])
+		add_breadcrumb @athlete.name, athlete_path(@athlete.id)
 	end
 	
 	def edit

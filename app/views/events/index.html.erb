@@ -1,15 +1,31 @@
 <% provide(:title, "Events List") %>
-<% if @events.present? %>
+<ol class="breadcrumb">
+    <%= render_breadcrumbs :tag => :li, :separator => "" %>
+  </ol>
+
 <div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add New Event"), new_event_path, class: "btn btn-sm btn-default" %></div>
 <div class="page-header">
 <h1>Events list</h1>
 </div>
+<!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#individual" aria-controls="home" role="tab" data-toggle="tab">Individual Event Tournaments</a></li>
+    <li role="presentation"><a href="#team" aria-controls="profile" role="tab" data-toggle="tab">Team Event Tournaments</a></li>
+  </ul>
 
-<% @events.each_with_index do |a, index| %>
-		<h3><%= a.name %></h3>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="individual">
+    <% if @events.present? %>
+    	<% @events.each_with_index do |a, index| %>
+		
+		<%= link_to event_path(a.id) do %>
+			<h3><%= a.name %></h3>
+		<% end %>
 	    <p><%= strip_tags(a.description) %></p>
 	    <p>at <i class="fa fa-calendar"></i> <strong><%= a.finishdate.strftime('%d %B %Y') %></strong></p>
 	<span class="pull-right">
+	<%= link_to (fa_icon "plus-circle", text: "Add Participants"), ae_path(a.id), class: "btn btn-sm btn-warning" %>
 		<%= link_to "Lihat", event_path(a.id), class: "btn btn-sm btn-default" %>
 		<%= link_to "Edit", edit_event_path(a.id), class: "btn btn-sm btn-default" %>
 		<%= link_to "Hapus", event_path(a.id), method: :delete, data: { confirm: "Apakah anda ingin menghapus Event ini?", ok: "Oke", cancel: "Batalkan" }, class: "btn btn-sm btn-danger"  %>
@@ -19,5 +35,35 @@
 
 <% else %>
 <div class="alert alert-warning"> There are no events. <%= link_to "Create One Now.", new_event_path, class: "btn btn-sm btn-default" %> </div>
+<% end %>	
+<%= will_paginate @events %>
+    </div>
+
+
+    <div role="tabpanel" class="tab-pane" id="team">
+    	
+    	    <% if @events_team.present? %>
+    	<% @events_team.each_with_index do |a, index| %>
+		
+		<%= link_to event_path(a.id) do %>
+			<h3><%= a.name %></h3>
+		<% end %>
+	    <p><%= strip_tags(a.description) %></p>
+	    <p>at <i class="fa fa-calendar"></i> <strong><%= a.finishdate.strftime('%d %B %Y') %></strong></p>
+	<span class="pull-right">
+		<%= link_to (fa_icon "plus-circle", text: "Add Participants"), at_path(a.id), class: "btn btn-sm btn-warning" %>
+		<%= link_to "Lihat", event_path(a.id), class: "btn btn-sm btn-default" %>
+		<%= link_to "Edit", edit_event_path(a.id), class: "btn btn-sm btn-default" %>
+		<%= link_to "Hapus", event_path(a.id), method: :delete, data: { confirm: "Apakah anda ingin menghapus Event ini?", ok: "Oke", cancel: "Batalkan" }, class: "btn btn-sm btn-danger"  %>
+	</span>
+	<hr>
 <% end %>
-<%= will_paginate @articles %>
+
+<% else %>
+<div class="alert alert-warning"> There are no events. <%= link_to "Create One Now.", new_event_path, class: "btn btn-sm btn-default" %> </div>
+<% end %>	
+<%= will_paginate @events_team %>
+    </div>
+  </div>
+
+

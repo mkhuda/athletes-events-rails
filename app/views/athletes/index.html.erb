@@ -1,4 +1,7 @@
 <% provide(:title, "Atlit") %>
+<ol class="breadcrumb">
+    <%= render_breadcrumbs :tag => :li, :separator => "" %>
+  </ol>
 <% if @athletes.present? %>
 <div class="pull-left"><h2>Daftar Atlit</h2></div>
 <div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add New"), new_athlete_path, class: "btn btn-sm btn-default" %></div>

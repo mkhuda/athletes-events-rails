@@ -23,7 +23,7 @@
 
 var ready;
 ready = function() {
-	$('textarea').trumbowyg({
+	$('textarea.rich').trumbowyg({
 		fullscreenable: false,
 		closable: false,
 		btns: ['viewHTML',
