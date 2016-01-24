@@ -15,11 +15,11 @@
 		<div class="city col-md-3"><%= a.city %></div>
 		<div class="edit col-md-3">
 
-			<%= button_to at_path(params[:event_id]), :method => :post, params: {:"at[team_id]" => a.id, :"at[event_id]" => params[:event_id]}, class: "btn btn-danger", :disabled => a.teamevents.where(:team_id => a.id, :event_id => params[:event_id]).present?, form_class: "button-thing" do %>
+			<%= button_to at_path(params[:event_id]), :method => :post, params: {:"at[team_id]" => a.id, :"at[event_id]" => params[:event_id]}, class: "btn btn-danger", :disabled => a.teamevents.where(:team_id => a.id, :event_id => params[:event_id]).present?, form_class: "button-thing button-ajax-form" do %>
 			<%= ("<i class='fa fa-plus-square-o'></i> Add").html_safe %>
 			<% end %>
 
-			<%= button_to at_path(params[:event_id]), :method => :delete, params: {:"at[team_id]" => a.id, :"at[event_id]" => params[:event_id]}, class: "btn btn-default", :disabled => !a.teamevents.where(:team_id => a.id, :event_id => params[:event_id]).present?, form_class: "button-thing" do %>
+			<%= button_to at_path(params[:event_id]), :method => :delete, params: {:"at[team_id]" => a.id, :"at[event_id]" => params[:event_id]}, class: "btn btn-default", :disabled => !a.teamevents.where(:team_id => a.id, :event_id => params[:event_id]).present?, form_class: "button-thing button-ajax-form" do %>
 			<%= ("<i class='fa fa-close'></i>").html_safe %>
 			<% end %>
 

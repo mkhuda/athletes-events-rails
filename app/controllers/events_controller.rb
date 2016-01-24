@@ -104,7 +104,21 @@ class EventsController < ApplicationController
 		@event.destroy
 		redirect_to events_path
 	end
+
+	def destroyathlete
+		session[:return_to] ||= request.referer
+		@tran = Athleteevent.find_by(ae_params)
+		@tran.destroy
+		redirect_to session.delete(:return_to)
+	end
 	
+	def destroyteam
+		session[:return_to] ||= request.referer
+		@tran = Teamevent.find_by(at_params)
+		@tran.destroy
+		redirect_to session.delete(:return_to)
+	end
+
 	def require_authorization
 		redirect_to root_path unless logged_in? # or whatever you want to check
 	end

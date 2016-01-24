@@ -23,21 +23,16 @@
 
 var ready;
 ready = function() {
-	$('textarea.rich').trumbowyg({
-		fullscreenable: false,
-		closable: false,
-		btns: ['viewHTML',
-      '|', 'formatting',
-      '|', 'btnGrp-design',
-      '|', 'link',
-      '|', 'btnGrp-justify',
-      '|', 'btnGrp-lists',
-      '|', 'horizontalRule']
-		});
-	console.log("Welcome to PBISSI");
+	$('textarea.rich').trumbowyg({ fullscreenable: false, closable: false, btns: ['viewHTML', '|', 'formatting', '|', 'btnGrp-design', '|', 'link', '|', 'btnGrp-justify', '|', 'btnGrp-lists', '|', 'horizontalRule']});
 	$('input.picker').datepicker({
 		format: "yyyy-mm-dd"
 	});
+	$("form.button-ajax-form").submit(function() {
+      id = $(this).children(".btn").attr("data-id"); // later used
+      $(this).children(".btn").attr("disabled", true);
+      $(this).children(".btn").html("<i class='fa fa-circle-o-notch fa-spin'></i>")
+      
+    });
 };
 
 $(document).ready(ready);
