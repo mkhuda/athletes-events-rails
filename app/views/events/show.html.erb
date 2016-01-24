@@ -14,47 +14,61 @@
 
 </div>
 <br>
-	<ul class="list-group">
-	<li class="list-group-item disabled">
-	<div class="row">
-			<div class="name col-md-12"><p class="text-center"><%= @event.name %> - Results</p></div>
-	</div>
-	</li>
-	<li class="list-group-item active">
-	<div class="row">
-			<div class="name col-md-5">Name</div>
-			<div class="city col-md-3">City</div>
-			<div class="city col-md-2">Position</div>
-			<div class="city col-md-2">Point</div>
-	</div>
-	</li>
+<table class="table table-hover">
+  <thead>
+  <tr class="info">
+  <th>
+  		No
+  	</th>
+  	<th>
+  		Name
+  	</th>
+  	<th>
+  		City
+  	</th>
+  	<th>
+  		Position
+  	</th>
+  	<th>
+  		Point
+  	</th>
+  </tr>
+
+  </thead>
+  <tbody>
+
+
+
 	<% @fetch.each_with_index do |a, index| %>
-	
-	<li class="list-group-item">
-	<div class="row">
-		<% if @event.category == "Individual" %>
-			<div class="name col-md-5"><%= a.athlete.name %></div>
-			<div class="city col-md-3"><%= a.athlete.city %></div>
-			<div class="city col-md-2"><%= a.position %></div>
-			<div class="city col-md-2"><%= a.point %></div>
-		<% else %>
-			<div class="name col-md-5"><%= a.team.name %></div>
-			<div class="city col-md-3"><%= a.team.city %></div>
-			<div class="city col-md-2"><%= a.position %></div>
-			<div class="city col-md-2"><%= a.point %></div>
-		<% end %>
-	</div>
-	</li>
+	<% if @event.category == "Individual" %>
+	<tr>
+	<td class="athletes no-<%= a.id %> col-md-1"><%= index + 1 %></td>
+	<td class="name col-md-5"><%= a.athlete.name %></td>
+	<td class="city col-md-3"><%= a.athlete.city %></td>
+	<td class="edit col-md-2"><%= a.position %></td>
+	<td class="edit col-md-2"><%= a.point %></td>
+	</tr>
+	<% else %>
+	<tr>
+	<td class="teams no-<%= a.id %> col-md-1"><%= index %></td>
+	<td class="name col-md-5"><%= a.team.name %></td>
+	<td class="city col-md-3"><%= a.team.city %></td>
+	<td class="edit col-md-2"><%= a.position %></td>
+	<td class="edit col-md-2"><%= a.point %></td>
+	</tr>
 	<% end %>
-	<li class="list-group-item disabled">
-	<div class="row">
-			<div class="name col-md-12">
-			<p class="text-right pull-left">ICF 2016</p>
-			<p class="text-right pull-right"><i class="fa fa-calendar"></i> <strong><%= @event.startdate.strftime('%d %B %Y') %></strong> - <strong><%= @event.finishdate.strftime('%d %B %Y') %></strong></p>
-			</div>
-	</div>
-	</li>
-	</ul>
+	<% end %>
+
+  </tbody>
+</table>
+
+<div class="row info">
+		<div class="name col-md-12">
+		<p class="text-right text-muted pull-left">ICF 2016</p>
+		<p class="text-right text-muted pull-right"><i class="fa fa-calendar"></i> <strong><%= @event.startdate.strftime('%d %B %Y') %></strong> - <strong><%= @event.finishdate.strftime('%d %B %Y') %></strong></p>
+		</div>
+</div>
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".share-modal-lg"><i class="fa fa-share-alt"></i> Embed This Results</button>
 
 <div class="modal fade share-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
