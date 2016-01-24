@@ -11,6 +11,7 @@
 	    <p>at <i class="fa fa-calendar"></i> <strong><%= a.finishdate.strftime('%d %B %Y') %></strong></p>
 	<span class="pull-right">
 		<%= link_to "Lihat", event_path(a.id), class: "btn btn-sm btn-default" %>
+		<%= link_to "Edit", edit_event_path(a.id), class: "btn btn-sm btn-default" %>
 		<%= link_to "Hapus", event_path(a.id), method: :delete, data: { confirm: "Apakah anda ingin menghapus Event ini?", ok: "Oke", cancel: "Batalkan" }, class: "btn btn-sm btn-danger"  %>
 	</span>
 	<hr>
