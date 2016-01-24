@@ -5,23 +5,17 @@
 <h1>Events list</h1>
 </div>
 
-	<div class="list-group">
-	<% @events.each_with_index do |a, index| %>
-<%= link_to event_path(a.id), class: "list-group-item" do %>
-
-<h4 class="list-group-item-heading"><i class="fa fa-bookmark-o"></i> <%= a.name %></h4>
-    <p class="list-group-item-text"><%= strip_tags(a.description) %></p>
-    <p class="list-group-item-text">at <i class="fa fa-calendar"></i> <strong><%= (a.finish_date).strftime('%d %B %Y') %></strong></p>
-<span class="pull-right">
-      <button class="btn btn-xs btn-info">Edit</button>
-      <button class="btn btn-xs btn-warning">
-        <span class="glyphicon glyphicon-trash"></span>
-      </button>
-    </span>
+<% @events.each_with_index do |a, index| %>
+		<h3><%= a.name %></h3>
+	    <p><%= strip_tags(a.description) %></p>
+	    <p>at <i class="fa fa-calendar"></i> <strong><%= a.finishdate.strftime('%d %B %Y') %></strong></p>
+	<span class="pull-right">
+		<%= link_to "Lihat", event_path(a.id), class: "btn btn-sm btn-default" %>
+		<%= link_to "Edit", edit_event_path(a.id), class: "btn btn-sm btn-default" %>
+		<%= link_to "Hapus", event_path(a.id), method: :delete, data: { confirm: "Apakah anda ingin menghapus Event ini?", ok: "Oke", cancel: "Batalkan" }, class: "btn btn-sm btn-danger"  %>
+	</span>
+	<hr>
 <% end %>
-	<% end %>
-
-</div>
 
 <% else %>
 <div class="alert alert-warning"> There are no events. <%= link_to "Create One Now.", new_event_path, class: "btn btn-sm btn-default" %> </div>
