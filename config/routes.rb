@@ -23,11 +23,18 @@ Rails.application.routes.draw do
 
   # for events
   get 'standings/:event_id' => 'events#showstanding', as: :standing
-
+  
+  # set event results
+  get 'set/:event_id' => 'events#setresults', as: :set
+  post 'set/:event_id' => 'events#createresults'
+  delete 'set/:event_id' => 'events#destroyresults'
+  
+  # set athlete participants
   get 'ae/:event_id' => 'events#showathlete', as: :ae
   post 'ae/:event_id' => 'events#createathlete'
   delete 'ae/:event_id' => 'events#destroyathlete'
   
+  # set team participants
   get 'at/:event_id' => 'events#showteam', as: :at
   post 'at/:event_id' => 'events#createteam'
   delete 'at/:event_id' => 'events#destroyteam'

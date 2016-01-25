@@ -1,0 +1,8 @@
+<div class="pull-right"><%= link_to (fa_icon "plus-eye", text: "Show Results"), event_path(@event.id), class: active_action("show") %></div>
+<div class="pull-right"><%= link_to (fa_icon "plus-eye", text: "Show Standings"), standing_path(@event.id), class: active_action("showstanding") %></div>
+<div class="pull-right"><%= link_to (fa_icon "check-circle", text: "Set Event Results"), set_path(@event.id), class: active_action("setresults") %></div>
+<% if @event.category == "Individual" %>
+	<div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add / Edit Participants"), ae_path(@event.id), class: active_action("showathlete") %></div>
+<% else %>
+	<div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add / Edit Participants"), at_path(@event.id), class: active_action("showteam") %></div>
+<% end %>

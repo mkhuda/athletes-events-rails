@@ -5,14 +5,7 @@
 
 <div class="page-header">
 	<h1><%= @event.name %></h1>
-	<div class="pull-left"><%= link_to (fa_icon "plus-eye", text: "Show Results"), event_path(@event.id), class: "btn btn-sm btn-danger" %></div>
-	<% if @event.category == "Individual" %>
-		<div class="pull-right"><%= link_to (fa_icon "check-circle", text: "Set Event Results"), ae_path(@event.id), class: "btn btn-sm btn-default" %></div>
-		<div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add / Edit Participants"), ae_path(@event.id), class: "btn btn-sm btn-default" %></div>
-	<% else %>
-		<div class="pull-right"><%= link_to (fa_icon "check-circle", text: "Set Event Results"), at_path(@event.id), class: "btn btn-sm btn-default" %></div>
-		<div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add / Edit Participants"), at_path(@event.id), class: "btn btn-sm btn-default" %></div>
-	<% end %>
+	<%= render "menu" %>
 
 </div>
 <br>

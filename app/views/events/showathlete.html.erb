@@ -4,8 +4,9 @@
 </ol>
 <div class="page-header">
 	<h2>Add Athletes for <%= @event.name %></h2>
+	<%= render "menu" %>
 </div>
-
+<br>
 <ul class="list-group">
 <% @athlete.each_with_index do |a, index| %>
   <li class="list-group-item">
