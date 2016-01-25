@@ -1,5 +1,8 @@
 class TeamsController < ApplicationController
 	before_filter :require_authorization
+
+	add_breadcrumb "Home", :root_path
+	add_breadcrumb "Teams", :teams_path
 	def index
 		@teams = Team.paginate(:page => params[:page], :per_page => 20)
 	end
@@ -38,6 +41,7 @@ class TeamsController < ApplicationController
 	def show
 		@team = Team.find(params[:id])
 		@size = @team.athletes.size
+		add_breadcrumb @team.name, team_path(@team.id)
 	end
 
 	def destroy

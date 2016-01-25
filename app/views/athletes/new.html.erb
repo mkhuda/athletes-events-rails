@@ -1,3 +1,8 @@
 <% provide(:title, "Add New Athlete") %>
-<h2>Create New Athlete</h2>
+<ol class="breadcrumb">
+    <%= render_breadcrumbs :tag => :li, :separator => "" %>
+  </ol>
+<div class="page-header">
+<h1>Create new Athlete</h1>
+</div>
 <%= render 'form' %>

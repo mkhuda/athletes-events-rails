@@ -16,16 +16,13 @@
   </tr>
   <tr class="info">
   <th>
-  		No
+  		Position
   	</th>
   	<th>
-  		Name
+  		<%= (@event.category == "Individual") ? "Athlete Name" : "Team Name" %>
   	</th>
   	<th>
   		City
-  	</th>
-  	<th>
-  		Position
   	</th>
   	<th>
   		Point
@@ -40,18 +37,16 @@
 	<% @fetch.each_with_index do |a, index| %>
 	<% if @event.category == "Individual" %>
 	<tr>
-	<td class="athletes no-<%= a.id %> col-md-1"><%= index + 1 %></td>
+	<td class="athletes no-<%= a.id %> col-md-1"><%= a.position %></td>
 	<td class="name col-md-5"><%= a.athlete.name %></td>
 	<td class="city col-md-3"><%= a.athlete.city %></td>
-	<td class="edit col-md-2"><%= a.position %></td>
 	<td class="edit col-md-2"><%= a.point %></td>
 	</tr>
 	<% else %>
 	<tr>
-	<td class="teams no-<%= a.id %> col-md-1"><%= index %></td>
+	<td class="teams no-<%= a.id %> col-md-1"><%= a.position %></td>
 	<td class="name col-md-5"><%= a.team.name %></td>
 	<td class="city col-md-3"><%= a.team.city %></td>
-	<td class="edit col-md-2"><%= a.position %></td>
 	<td class="edit col-md-2"><%= a.point %></td>
 	</tr>
 	<% end %>

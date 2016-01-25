@@ -1,4 +1,7 @@
 <% provide(:title, "Teams") %>
+<ol class="breadcrumb">
+    <%= render_breadcrumbs :tag => :li, :separator => "" %>
+  </ol>
 <% if @teams.present? %>
 <div class="pull-left"><h2>Daftar Tim</h2></div>
 <div class="pull-right"><%= link_to (fa_icon "plus-circle", text: "Add New Team"), new_team_path, class: "btn btn-sm btn-default" %></div>

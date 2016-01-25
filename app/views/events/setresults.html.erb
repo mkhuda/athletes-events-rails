@@ -43,15 +43,29 @@
 	<td class="athletes no-<%= a.id %> col-md-1"><%= index + 1 %></td>
 	<td class="name col-md-5"><%= a.athlete.name %></td>
 	<td class="city col-md-3"><%= a.athlete.city %></td>
-	<td class="edit col-md-2"><%= a.position %></td>
-	<td class="edit col-md-2"><%= a.point %></td>
+	<td class="edit col-md-2">
+  <%= form_for set_path(a.id), :remote => false do %>
+    <%= hidden_field_tag "set[id]", a.athlete.id %>
+    <%= hidden_field_tag "set[category]", "Individual" %>
+    <%= hidden_field_tag "set[event_id]", @event.id %>
+    <%= select("set", "position", options_for_select((1..@totalfetch).map {|d| [d, d]}, selected: a.position, disabled: 7), { include_blank: true }, class: "form-control", :onchange => "this.form.submit();") %>
+    <% end %></td>
+	<td class="edit col-md-2">
+  </td>
 	</tr>
 	<% else %>
 	<tr>
-	<td class="teams no-<%= a.id %> col-md-1"><%= index %></td>
+	<td class="teams no-<%= a.id %> col-md-1"><%= index + 1 %></td>
 	<td class="name col-md-5"><%= a.team.name %></td>
 	<td class="city col-md-3"><%= a.team.city %></td>
-	<td class="edit col-md-2"><%= a.position %></td>
+	<td class="edit col-md-2">
+   <%= form_for set_path(a.id), :remote => false do %>
+    <%= hidden_field_tag "set[id]", a.team.id %>
+    <%= hidden_field_tag "set[category]", "Team" %>
+    <%= hidden_field_tag "set[event_id]", @event.id %>
+    <%= select("set", "position", options_for_select((1..@totalfetch).map {|d| [d, d]}, selected: a.position), { include_blank: true }, class: "form-control", :onchange => "this.form.submit();") %>
+    <% end %> 
+  </td>
 	<td class="edit col-md-2"><%= a.point %></td>
 	</tr>
 	<% end %>

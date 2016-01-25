@@ -83,9 +83,11 @@ class EventsController < ApplicationController
 		if @event.category == 'Individual'
 			@fetch = Athleteevent.all.where("event_id = ?", params[:event_id])
 			@totalfetch = @fetch.count
+			@nullposition = @fetch.where.not(position: nil)
 		else
 			@fetch = Teamevent.all.where("event_id = ?", params[:event_id])
 			@totalfetch = @fetch.count
+			@nullposition = @fetch.where.not(position: nil)
 		end
 
 		add_breadcrumb @event.name, event_path(@event.id)
@@ -131,6 +133,29 @@ class EventsController < ApplicationController
 			redirect_to session.delete(:return_to)
 		end
 	end
+
+	def createresults
+		session[:return_to] ||= request.referer
+		@id = params[:set][:id]
+		@event_id = params[:event_id]
+		@position = params[:set][:position]
+		@category = params[:set][:category]
+		if @category == "Individual"
+			@tran = Athleteevent.find_by(event_id: @event_id, athlete_id: @id)
+			if @tran.update_attributes(set_params)
+				redirect_to session.delete(:return_to)
+			else
+				redirect_to set_path(@event_id)
+			end
+		else
+			@tran = Teamevent.find_by(event_id: @event_id, team_id: @id)
+			if @tran.update_attributes(set_params)
+				redirect_to session.delete(:return_to)
+			else
+				redirect_to set_path(@event_id)
+			end
+		end
+	end
 	
 	# delete individual event
 	def destroyathlete
@@ -172,6 +197,10 @@ class EventsController < ApplicationController
 
 		def at_params
 			params.require(:at).permit(:team_id, :event_id)
+		end
+
+		def set_params
+			params.require(:set).permit(:position)
 		end
 		
 	
