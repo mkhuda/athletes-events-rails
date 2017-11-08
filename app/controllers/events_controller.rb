@@ -33,10 +33,13 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		
 		if @event.category == 'Individual'
-			@fetch = Athleteevent.all.where("event_id = ?", params[:id])
+			@fetchyess = Athleteevent.all.where("event_id = ? and position is not null", params[:id]).order(position: :asc)
+			
+			@fetchnull = Athleteevent.all.where("event_id = ? and position is null", params[:id])
+			@fetch = @fetchyess+@fetchnull
 			
 		else
-			@fetch = Teamevent.all.where("event_id = ?", params[:id])
+			@fetch = Teamevent.all.where("event_id = ?", params[:id]).order(position: :asc)
 		end
 
 		add_breadcrumb @event.name, event_path(@event.id)

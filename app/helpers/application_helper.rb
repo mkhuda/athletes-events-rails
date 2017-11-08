@@ -10,4 +10,12 @@ module ApplicationHelper
 			"btn btn-sm btn-default"
 		end
 	end
+
+	def active_controller(string)
+		if params[:controller] == string
+			["text-muted", ""]
+		else 
+			["", "collapse"]
+		end
+	end
 end
