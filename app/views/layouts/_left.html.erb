@@ -5,15 +5,15 @@
 	<li role="presentation"><%= link_to "Athletes", athletes_path, class: active_controller("athletes")[0] %></li>
 	<li role="presentation"><%= link_to "Teams", teams_path, class: active_controller("teams")[0] %></li>
 	<li role="presentation"><%= link_to "Events", events_path, class: active_controller("events")[0] %>
-		<div style="padding-left:3px;">
-          <ul id="drilldown-event" class="nav nav-pills nav-stacked <%= active_controller('events')[1] %>">
-            <li><a href="#">Road</a></li>
-            <li><a href="#">Track</a></li>
-            <li><a href="#">Cross Country</a></li>
-            <li><a href="#">Downhill</a></li>
-            <li><a href="#">BMX</a></li>
-          </ul>
-          </div>
+		<!-- <div style="padding-left:3px;">
+      <ul id="drilldown-event" class="nav nav-pills nav-stacked <%= active_controller('events')[1] %>">
+        <li><a href="#">Road</a></li>
+        <li><a href="#">Track</a></li>
+        <li><a href="#">Cross Country</a></li>
+        <li><a href="#">Downhill</a></li>
+        <li><a href="#">BMX</a></li>
+      </ul>
+    </div> -->
 	</li>
 	</ul>
 </div>
