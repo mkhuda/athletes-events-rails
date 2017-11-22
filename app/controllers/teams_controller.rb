@@ -57,7 +57,7 @@ class TeamsController < ApplicationController
 		end
 
 	def require_authorization
-		redirect_to root_path unless logged_in? # or whatever you want to check
+		redirect_to root_path unless logged_in?
 	end
 
 end
