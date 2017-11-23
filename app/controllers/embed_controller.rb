@@ -3,7 +3,6 @@ class EmbedController < ApplicationController
   end
 
   def eventstandings
-
   	@event = Event.find(params[:event_id])
 		
 	if @event.category == 'Individual'
