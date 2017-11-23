@@ -1,5 +1,6 @@
 class EmbedController < ApplicationController
   def index
+    @index_name = "this is just index"
   end
 
   def eventstandings
