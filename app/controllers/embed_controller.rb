@@ -8,7 +8,6 @@ class EmbedController < ApplicationController
 		
 	if @event.category == 'Individual'
 		@fetch = Athleteevent.all.where("event_id = ?", params[:event_id])
-		
 	else
 		@fetch = Teamevent.all.where("event_id = ?", params[:event_id])
 	end
