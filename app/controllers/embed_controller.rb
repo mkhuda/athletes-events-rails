@@ -15,12 +15,11 @@ class EmbedController < ApplicationController
   def eventresults
   	@event = Event.find(params[:event_id])
 		
-	if @event.category == 'Individual'
-		@fetch = Athleteevent.all.where("event_id = ?", params[:event_id])
-	else
-		@fetch = Teamevent.all.where("event_id = ?", params[:event_id])
-	end
-
+    if @event.category == 'Individual'
+      @fetch = Athleteevent.all.where("event_id = ?", params[:event_id])
+    else
+      @fetch = Teamevent.all.where("event_id = ?", params[:event_id])
+    end
   end
 
 end
