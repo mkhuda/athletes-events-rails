@@ -1,8 +1,9 @@
 class TeamsController < ApplicationController
-	before_filter :require_authorization
-
+	
+  before_filter :require_authorization
 	add_breadcrumb "Home", :root_path
 	add_breadcrumb "Teams", :teams_path
+
 	def index
 		@teams = Team.paginate(:page => params[:page], :per_page => 20)
 	end
@@ -47,7 +48,6 @@ class TeamsController < ApplicationController
 	def destroy
 		@team = Team.find(params[:id])
 		@team.destroy
-
 		redirect_to teams_path
 	end
 
@@ -59,4 +59,5 @@ class TeamsController < ApplicationController
 	def require_authorization
 		redirect_to root_path unless logged_in? # or whatever you want to check
 	end
+
 end
